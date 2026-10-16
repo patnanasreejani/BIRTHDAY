@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Roshini 💖</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(
+                135deg, #ffd6e7, #e6ccff, #c9e7ff
+            );
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .page {
+            display: none;
+            min-height: 100vh;
+            width: 100%;
+            padding: 30px 15px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            animation: appear 1s ease;
+        }
+
+        .page.active {
+            display: flex;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 8vw, 4rem);
+            margin-bottom: 25px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                90deg, #ff1493, #8a2be2,
+                #ff6347, #ff1493
+            );
+            background-size: 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient 4s infinite linear;
+        }
+
+        .intro {
+            color: #713b72;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        button {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(
+                45deg, #ff4d94, #a855f7
+            );
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 20px #c084fc88;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            transform: scale(1.06);
+        }
+
+        .cake {
+            font-size: 75px;
+            margin-bottom: 15px;
+            animation: bounce 1.5s infinite;
+        }
+
+        /* Friendship letter */
+        .letter {
+            width: 100%;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 28px;
+            border-radius: 25px;
+            background: #ffffffd9;
+            box-shadow: 0 10px 40px #a855f744;
+            text-align: left;
+        }
+
+        .letter h2 {
+            color: #d63384;
+            text-align: center;
+            margin-bottom: 22px;
+            font-size: 28px;
+        }
+
+        .letter p {
+            font-size: 16px;
+            color: #62345b;
+            line-height: 1.9;
+            white-space: pre-line;
+        }
+
+        /* Photo AFTER the letter */
+        .photo-section {
+            width: 100%;
+            max-width: 650px;
+            margin: 30px auto;
+            padding: 25px 15px;
+            animation: appear 1.5s ease;
+        }
+
+        .photo-section h2 {
+            color: #d63384;
+            font-size: 27px;
+            margin-bottom: 20px;
+        }
+
+        .birthday-photo {
+            display: block;
+            width: min(280px, 90%);
+            height: 350px;
+            object-fit: cover;
+            margin: 0 auto;
+            border: 6px solid white;
+            border-radius: 25px;
+            box-shadow:
+                0 0 15px #ff69b4,
+                0 0 35px #c084fc;
+            transition: transform 0.4s;
+        }
+
+        .birthday-photo:hover {
+            transform: scale(1.03) rotate(1deg);
+        }
+
+        .photo-message {
+            color: #a02b75;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            line-height: 1.7;
+        }
+
+        .back-button {
+            margin: 10px auto 30px;
+        }
+
+        .heart {
+            position: fixed;
+            bottom: -40px;
+            pointer-events: none;
+            z-index: 10;
+            animation: floatUp 6s linear forwards;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0%; }
+            100% { background-position: 300%; }
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        @keyframes floatUp {
+            to {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+<audio id="bgMusic" loop>
+    <source src="the_metro_proposal.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicButton"
+        onclick="toggleMusic()"
+        style="position:fixed; top:15px; right:15px; z-index:100;
+               margin:0; padding:10px 15px;">
+    🎵 Play Music
+</button>
+
+
+    <!-- PAGE 1: WELCOME -->
+    <section class="page active" id="page1">
+
+        <div class="cake">💌</div>
+
+        <h1 class="gradient-text">
+            Hello Roshini!
+        </h1>
+
+        <p class="intro">
+            Someone special has a surprise for you... 💗
+        </p>
+
+        <button onclick="showPage(2)">
+            Click Here ✨
+        </button>
+
+    </section>
+
+
+    <!-- PAGE 2: BIRTHDAY WISH -->
+    <section class="page" id="page2">
+
+        <div class="cake">🎂</div>
+
+        <h1 class="gradient-text">
+            HAPPY BIRTHDAY<br>
+            ROSHINI! 🎉
+        </h1>
+
+        <p class="intro">
+            Today is all about YOU! 💖<br>
+            May your life always be filled with love,
+            laughter and happiness.
+        </p>
+
+        <button onclick="showPage(3)">
+            Read My Letter 💌
+        </button>
+
+    </section>
+
+
+    <!-- PAGE 3: LETTER FIRST, PHOTO LAST -->
+    <section class="page" id="page3">
+
+        <div class="letter">
+
+            <h2>To My Dear Roshini 💗</h2>
+
+            <p>Dear Roshini,
+
+Happy Birthday to one of the most special people in my life! 🥹💖
+
+I'm so lucky to have a friendship like ours. Some people enter our lives and make ordinary moments extraordinary, and you are one of those people for me.
+
+Thank you for the smiles, the laughs, the silly conversations, and all those little moments that become beautiful memories. 🫂💕
+
+No matter how busy life gets or how much things change, I hope our friendship always stays this special.
+
+I wish you endless happiness, success, love, and all the beautiful things your heart desires. May every dream you have slowly turn into reality. 🌷✨
+
+Never stop smiling, never stop dreaming, and never forget how precious you are. You deserve the very best in this world!
+
+Once again, HAPPY BIRTHDAY, ROSHINI! 🎂🎉
+
+No matter where life takes us, I hope we will always have beautiful memories to look back on and a friendship to treasure forever. 💕
+
+Lots of love and hugs,
+Your forever friend 💖</p>
+
+        </div>
+
+
+        <!-- HER IMAGE APPEARS AFTER THE COMPLETE LETTER -->
+        <div class="photo-section">
+
+            <h2>And Here Is My Birthday Girl! 🌸</h2>
+
+            <img
+                src="WhatsApp Image 2026-10-15 at 8.19.02 PM.jpeg"
+                alt="Beautiful Roshini"
+                class="birthday-photo"
+            >
+
+            <p class="photo-message">
+                One photo, a thousand memories. 💗<br>
+                Stay happy, stay beautiful, and keep smiling! 🫶
+            </p>
+
+        </div>
+
+
+        <button class="back-button" onclick="showPage(2)">
+            Back to Birthday 🎂
+        </button>
+
+    </section>
+
+
+    <script >
+        
+const music = document.getElementById("bgMusic");
+const musicButton = document.getElementById("musicButton");
+
+function startMusic() {
+    music.play()
+        .then(() => {
+            musicButton.textContent = "🔊 Pause Music";
+        })
+        .catch((error) => {
+            console.error("Music error:", error);
+            musicButton.textContent = "🎵 Play Music";
+            alert(
+                "Music could not play. Check the MP3 filename, " +
+                "file location, and audio format."
+            );
+        });
+}
+
+function toggleMusic() {
+    if (music.paused) {
+        startMusic();
+    } else {
+        music.pause();
+        musicButton.textContent = "🎵 Play Music";
+    }
+}
+
+music.addEventListener("play", () => {
+    musicButton.textContent = "🔊 Pause Music";
+});
+
+music.addEventListener("pause", () => {
+    musicButton.textContent = "🎵 Play Music";
+});
+
+        function showPage(pageNumber) {
+
+            document.querySelectorAll(".page").forEach(page => {
+                page.classList.remove("active");
+            });
+
+            document.getElementById("page" + pageNumber)
+                .classList.add("active");
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+            if (pageNumber === 2 || pageNumber === 3) {
+                createHearts();
+            }
+        }
+
+        function createHearts() {
+
+            for (let i = 0; i < 18; i++) {
+
+                const heart = document.createElement("div");
+
+                heart.className = "heart";
+
+                heart.textContent = [
+                    "💖", "💕", "💗", "✨", "🌸"
+                ][Math.floor(Math.random() * 5)];
+
+                heart.style.left = Math.random() * 100 + "vw";
+
+                heart.style.animationDelay =
+                    Math.random() * 2 + "s";
+
+                heart.style.fontSize =
+                    (18 + Math.random() * 20) + "px";
+
+                document.body.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 8000);
+            }
+        }
+    </script>
+
+</body>
+</html>
